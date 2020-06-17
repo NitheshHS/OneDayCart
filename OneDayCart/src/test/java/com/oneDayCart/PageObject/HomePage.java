@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Reporter;
 
 import com.oneDayCart.GenericLib.Base;
 import com.oneDayCart.GenericLib.Utility;
@@ -344,6 +345,7 @@ public class HomePage {
 		
 	}
 	public void search(String search) {
+		Reporter.log("entering the product"+search, true);
 		searchBar.sendKeys(search, Keys.ENTER);
 	}
 	
