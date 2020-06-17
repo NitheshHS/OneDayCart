@@ -30,6 +30,11 @@ public class HomePage
 	private WebElement searchBar;
 	@FindBy(linkText="GROCERY")
 	private WebElement grocerylink;
+	@FindBy(xpath="//span[.='GROCERY& STAPLES']")
+	private WebElement groceryAndSaples;
+	public WebElement getGroceryAndSaples() {
+		return groceryAndSaples;
+	}
 	@FindBy(linkText="FRUITS & VEG")
 	private WebElement fruitsvegLink;
 	@FindBy(linkText="FISH & MEAT")
