@@ -12,11 +12,11 @@ public class Groceriesandstaples
    @FindBy(xpath="(//a[.='RICE & RICE PRODUCTS'])[2]")
    private WebElement riceProductsLink;
    
-   @FindBy(xpath="(//a[.='SPICES & MASALAS'])[2]")
-   private WebElement spicesMasalaLink;
-   
    @FindBy(xpath="(//a[.='FLOURS & ATTA'])[2]")
    private WebElement attalink;
+   
+   @FindBy(xpath="(//a[.='SPICES & MASALAS'])[2]")
+   private WebElement spicesMasalaLink;
    
    @FindBy(xpath="(//a[.='EDIBLE OILS'])[2]")
    private WebElement edibleOilLink;
