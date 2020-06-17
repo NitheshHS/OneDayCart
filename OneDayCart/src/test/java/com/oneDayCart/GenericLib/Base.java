@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -38,24 +39,30 @@ public class Base {
 		}
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		Reporter.log("Browser is launched", true);
 		driver.get(fi.getCommonKeyValue("url"));
+		Reporter.log("enter url", true);
 	}
 	@BeforeMethod
 	public void configBM() {
 		home=PageFactory.initElements(driver, HomePage.class);
 		home.clickOnlogin();
+		Reporter.log("click on logIn link", true);
 		LoginPage login = PageFactory.initElements(driver, LoginPage.class);
 		login.login(fi.getCommonKeyValue("email"), fi.getCommonKeyValue("password"));
+		Reporter.log("enter email and password", true);
 	}
 	@AfterMethod
 	public void configAM() {
 		home=PageFactory.initElements(driver, HomePage.class);
 		home.clickOnLogout();
+		Reporter.log("click on logOut Link", true);
 	}
 	
 	
 	@AfterClass
 	public void configAC() {
 		driver.close();
+		Reporter.log("browser closed");
 	}
 }
