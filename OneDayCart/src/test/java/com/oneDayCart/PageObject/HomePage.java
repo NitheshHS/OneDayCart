@@ -10,13 +10,16 @@ import org.openqa.selenium.support.FindBy;
 import com.oneDayCart.GenericLib.Base;
 import com.oneDayCart.GenericLib.Utility;
 
-public class HomePage {
+public class HomePage 
+{	
 	@FindBy(linkText="Register")
 	private WebElement registerLink;
 	@FindBy(linkText="Log In")
 	private WebElement logInlink;
 	@FindBy(linkText="Checkout")
 	private WebElement checkoutlink;
+	@FindBy(xpath="//div[@class='theme-text-color' and @id='tawkchat-status-text-container']")
+	private WebElement chatoff;
 	@FindBy(xpath="//a[contains(@title,'My Cart')]")
 	private WebElement mycartLink;
 	@FindBy(xpath="//a[contains(@title,'My Wishlist')]")
@@ -105,10 +108,12 @@ public class HomePage {
 	private WebElement logoutLink;
 	@FindBy(xpath="//a[@class='scrollup']")
 	private WebElement topButton;
-	
 	@FindBy(xpath="//button[.='×']")
 	private WebElement closeNotification;
 	
+	public WebElement getChatoff() {
+		return chatoff;
+	}
 	public WebElement getTopButton() {
 		return topButton;
 	}
