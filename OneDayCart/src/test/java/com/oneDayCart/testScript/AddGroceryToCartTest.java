@@ -7,14 +7,17 @@ import org.testng.annotations.Test;
 import com.oneDayCart.GenericLib.Base;
 import com.oneDayCart.PageObject.Grocery;
 
-public class AddGroceryToCartTest extends Base{
+public class AddGroceryToCartTest extends Base
+{
 	@DataProvider
-	public Object[][] readData() {
+	public Object[][] readData() 
+	{
 		return fi.readAllDataFromExcel(fi.getCommonKeyValue("sheet"));
 	
 	}
 	@Test(dataProvider="readData")
-	public void addgroceryTocartTest(String search,String KGgrams) {
+	public void addgroceryTocartTest(String search,String KGgrams) 
+	{
 		Grocery grocery=PageFactory.initElements(driver, Grocery.class);
 		grocery.addGrocery(driver, search, KGgrams);
 	}

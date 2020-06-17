@@ -22,7 +22,8 @@ public class Base {
 	public FileLib fi=new FileLib();
 	public HomePage home;
 	@BeforeClass
-	public void configBC() {
+	public void configBC() 
+	{
 		if(fi.getCommonKeyValue("browser").equals("chrome")) {
 			System.setProperty("webdriver.chrome.driver", "./Resources\\chromedriver.exe");
 			ChromeOptions op=new ChromeOptions();
