@@ -34,9 +34,9 @@ public class Utility {
 	 * @param element
 	 * @param value
 	 */
-	public static void selectByValue(WebElement element, String value) {
+	public static void selectByVisibletext(WebElement element, String text) {
 		sel=new Select(element);
-		sel.selectByValue(value);
+		sel.selectByVisibleText(text);
 	}
 	/**
 	 * This method is used take screenshot 

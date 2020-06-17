@@ -1,7 +1,14 @@
 package com.oneDayCart.PageObject;
 
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+
+import com.oneDayCart.GenericLib.Base;
+import com.oneDayCart.GenericLib.Utility;
 
 public class HomePage {
 	@FindBy(linkText="Register")
@@ -36,7 +43,7 @@ public class HomePage {
 	private WebElement electronicsLink;
 	@FindBy(linkText="SPORTS")
 	private WebElement sportsLink;
-	@FindBy(linkText="RICE & RICE PRODUCTS")
+	@FindBy(xpath="//a[.='RICE & RICE PRODUCTS']")
 	private WebElement riceproductLink;
 	@FindBy(linkText="FLOURS & ATTA")
 	private WebElement floursattaLink;
@@ -54,11 +61,291 @@ public class HomePage {
 	private WebElement fruitLink;
 	@FindBy(linkText="FROZEN MEAT")
 	private WebElement frozenmeatLink;
+	@FindBy(linkText="READY TO COOK")
+	private WebElement readytocookLink;
+	@FindBy(linkText="DAIRY PRODUCTS")
+	private WebElement dairyproductLink;
+	@FindBy(linkText="Eggs")
+	private WebElement eggsLink;
+	@FindBy(linkText="READY MADE")
+	private WebElement readymadeLink;
+	@FindBy(linkText="BABY FOODS")
+	private WebElement babyfoodLink;
+	@FindBy(linkText="FRYUMS & PAPAD")
+	private WebElement  fryumpapadLink;
+	@FindBy(linkText="CEREALS & BREKFASTS")
+	private WebElement cerealsbreakfastLink;
+	@FindBy(linkText="READY TO EAT")
+	private WebElement readytoeatLink;
+	@FindBy(linkText="SNACKS")
+	private WebElement snaksLink;
+	@FindBy(linkText="BISCUITS")
+	private WebElement biscuitsLink;
+	@FindBy(linkText="DRINKS")
+	private WebElement drinksLink;
+	@FindBy(linkText="SOFT DRINKS")
+	private WebElement softdrinksLink;
+	@FindBy(linkText="TEA & COFFE")
+	private WebElement teacoffeeLink;
+	@FindBy(linkText="HEALTH DRINKS")
+	private WebElement healthdrinkLink;
+	@FindBy(linkText="BEAUTY CARE")
+	private WebElement beautycareLink;
+	@FindBy(linkText="BODY CARE")
+	private WebElement bodycareLink;
+	@FindBy(linkText="HAIR CARE")
+	private WebElement haircareLink;
+	@FindBy(linkText="DELIVERY LOCATIONS")
+	private WebElement deliverylocLink;
+	@FindBy(id="menu_pincode")
+	private WebElement menupinTF;
+	@FindBy(id="menu_p_check")
+	private WebElement checkButton;
+	@FindBy(linkText="Log Out")
+	private WebElement logoutLink;
+	@FindBy(xpath="//a[@class='scrollup']")
+	private WebElement topButton;
 	
+	@FindBy(xpath="//button[.='×']")
+	private WebElement closeNotification;
 	
-	
-	
-	
+	public WebElement getTopButton() {
+		return topButton;
+	}
+	public WebElement getCloseNotification() {
+		return closeNotification;
+	}
+	public WebElement getRegisterLink() {
+		return registerLink;
+	}
+	public WebElement getLogInlink() {
+		return logInlink;
+	}
+	public WebElement getCheckoutlink() {
+		return checkoutlink;
+	}
+	public WebElement getMycartLink() {
+		return mycartLink;
+	}
+	public WebElement getMywishlistLink() {
+		return mywishlistLink;
+	}
+	public WebElement getMyAccountLink() {
+		return myAccountLink;
+	}
+	public WebElement getSearchBar() {
+		return searchBar;
+	}
+	public WebElement getGrocerylink() {
+		return grocerylink;
+	}
+	public WebElement getFruitsvegLink() {
+		return fruitsvegLink;
+	}
+	public WebElement getFishmeatLink() {
+		return fishmeatLink;
+	}
+	public WebElement getFoodLink() {
+		return foodLink;
+	}
+	public WebElement getPersonalcareLink() {
+		return personalcareLink;
+	}
+	public WebElement getStationaryLink() {
+		return stationaryLink;
+	}
+	public WebElement getHouseholdLink() {
+		return householdLink;
+	}
+	public WebElement getElectronicsLink() {
+		return electronicsLink;
+	}
+	public WebElement getSportsLink() {
+		return sportsLink;
+	}
+	public WebElement getRiceproductLink() {
+		return riceproductLink;
+	}
+	public WebElement getFloursattaLink() {
+		return floursattaLink;
+	}
+	public WebElement getDalspulsesLink() {
+		return dalspulsesLink;
+	}
+	public WebElement getSpicesmasalaLink() {
+		return spicesmasalaLink;
+	}
+	public WebElement getSaltsugarLink() {
+		return saltsugarLink;
+	}
+	public WebElement getEdibleoilLink() {
+		return edibleoilLink;
+	}
+	public WebElement getVegetableLink() {
+		return vegetableLink;
+	}
+	public WebElement getFruitLink() {
+		return fruitLink;
+	}
+	public WebElement getFrozenmeatLink() {
+		return frozenmeatLink;
+	}
+	public WebElement getReadytocookLink() {
+		return readytocookLink;
+	}
+	public WebElement getDairyproductLink() {
+		return dairyproductLink;
+	}
+	public WebElement getEggsLink() {
+		return eggsLink;
+	}
+	public WebElement getReadymadeLink() {
+		return readymadeLink;
+	}
+	public WebElement getBabyfoodLink() {
+		return babyfoodLink;
+	}
+	public WebElement getFryumpapadLink() {
+		return fryumpapadLink;
+	}
+	public WebElement getCerealsbreakfastLink() {
+		return cerealsbreakfastLink;
+	}
+	public WebElement getReadytoeatLink() {
+		return readytoeatLink;
+	}
+	public WebElement getSnaksLink() {
+		return snaksLink;
+	}
+	public WebElement getBiscuitsLink() {
+		return biscuitsLink;
+	}
+	public WebElement getDrinksLink() {
+		return drinksLink;
+	}
+	public WebElement getSoftdrinksLink() {
+		return softdrinksLink;
+	}
+	public WebElement getTeacoffeeLink() {
+		return teacoffeeLink;
+	}
+	public WebElement getHealthdrinkLink() {
+		return healthdrinkLink;
+	}
+	public WebElement getBeautycareLink() {
+		return beautycareLink;
+	}
+	public WebElement getBodycareLink() {
+		return bodycareLink;
+	}
+	public WebElement getHaircareLink() {
+		return haircareLink;
+	}
+	public WebElement getDeliverylocLink() {
+		return deliverylocLink;
+	}
+	public WebElement getMenupinTF() {
+		return menupinTF;
+	}
+	public WebElement getCheckButton() {
+		return checkButton;
+	}
+	public WebElement getLogoutLink() {
+		return logoutLink;
+	}
+	public void clickOnlogin() {
+		logInlink.click();
+	}
+	public void clickOncheckout() {
+		checkoutlink.click();
+	}
+	public void clickOnMycart() {
+		mycartLink.click();
+	}
+	public void clickOnMyWishlist() {
+		mywishlistLink.click();
+	}
+	public void clickOnMyAccount() {
+		myAccountLink.click();
+	}
+	public void clickOnSearchBar(String searchprod) {
+		searchBar.sendKeys(searchprod,Keys.ENTER);
+	}
+	public void grocesoryRiceProd(WebDriver driver) {
+		Utility.moveToElement(driver, grocerylink);
+		riceproductLink.click();	
+	}
+	public void grocesoryFlourAtta(WebDriver driver) {
+		Utility.moveToElement(driver, grocerylink);
+		floursattaLink.click();
+	}
+	public void grocesoryDallPulses(WebDriver driver) {
+		Utility.moveToElement(driver, grocerylink);
+		dalspulsesLink.click();
+	}
+	public void grocesorySpiceMasala(WebDriver driver) {
+		Utility.moveToElement(driver, grocerylink);
+		spicesmasalaLink.click();
+	}
+	public void grocesorySaltSuger(WebDriver driver) {
+		Utility.moveToElement(driver, grocerylink);
+		saltsugarLink.click();
+	}
+	public void grocesoryEdibleOil(WebDriver driver) {
+		Utility.moveToElement(driver, grocerylink);
+		edibleoilLink.click();
+	}
+	public void fruitVegetable(WebDriver driver) {
+		Utility.moveToElement(driver, fruitLink);
+		vegetableLink.click();
+	}
+	public void fruits(WebDriver driver) {
+		Utility.moveToElement(driver, fruitLink);
+		fruitLink.click();
+	}
+	public void fishmeat(WebDriver driver) {
+		Utility.moveToElement(driver, fishmeatLink);
+		frozenmeatLink.click();
+	}	
+	public void foodDairyProduct(WebDriver driver) {
+		Utility.moveToElement(driver, foodLink);
+		Utility.moveToElement(driver, readytocookLink);
+		dairyproductLink.click();
+	}
+	public void foodReadyMade(WebDriver driver) {
+		Utility.moveToElement(driver, foodLink);
+		Utility.moveToElement(driver, readytocookLink);
+		readymadeLink.click();
+	}
+	public void foodSnacks(WebDriver driver) {
+		Utility.moveToElement(driver, foodLink);
+		Utility.moveToElement(driver, readytoeatLink);
+		snaksLink.click();
+	}
+	public void foodBuiscuit(WebDriver driver) {
+		Utility.moveToElement(driver, foodLink);
+		Utility.moveToElement(driver, readytoeatLink);
+		biscuitsLink.click();
+	}
+	public void checkDeliverylocation(WebDriver driver, String pincode) {
+		Utility.moveToElement(driver, deliverylocLink);
+		menupinTF.sendKeys(pincode);
+		checkButton.click();
+	}
+	public void clickOnTop() {
+		topButton.click();
+	}
+	public void clickOnLogout() {
+		Point loc = logoutLink.getLocation();
+		
+		
+		Actions ac=new Actions(Base.staticDriver);
+		ac.moveByOffset(loc.getX(), loc.getY()).click().perform();
+		
+	}
+	public void search(String search) {
+		searchBar.sendKeys(search, Keys.ENTER);
+	}
 	
 	
 }
