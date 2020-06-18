@@ -1,11 +1,15 @@
 package com.oneDayCart.PageObject;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+
+import org.openqa.selenium.support.PageFactory;
+
 import org.testng.Assert;
 import org.testng.Reporter;
 
@@ -39,6 +43,11 @@ public class HomePage
 	public WebElement getGroceryAndSaples() {
 		return groceryAndSaples;
 	}
+	@FindBy(xpath="//a[.=' Intertoons Internet Services Pvt. Ltd. ']")
+	private WebElement liNk;
+	public WebElement getLiNk() {
+		return liNk;
+	}
 	@FindBy(linkText="FISH & MEAT")
 	private WebElement fishmeatLink;
 	@FindBy(linkText="FOOD")
@@ -63,6 +72,11 @@ public class HomePage
 	private WebElement spicesmasalaLink;
 	@FindBy(linkText="SALT, SUGAR & JAGGERY")
 	private WebElement saltsugarLink;
+	@FindBy(xpath="//span[.='Add to Cart']")
+	private WebElement addtoCart;
+	public WebElement getAddtoCart() {
+		return addtoCart;
+	}
 	@FindBy(linkText="EDIBLE OILS")
 	private WebElement edibleoilLink;
 	@FindBy(linkText="VEGETABLES")
@@ -115,8 +129,24 @@ public class HomePage
 	private WebElement logoutLink;
 	@FindBy(xpath="//a[@class='scrollup']")
 	private WebElement topButton;
+	public WebElement getGrocery() {
+		return grocery;
+	}
+	@FindBy(xpath="//a[.='Jaggery']")
+	private WebElement jaggery;
+	public WebElement getJaggery() {
+		return jaggery;
+	}
+	public WebElement getBlend() {
+		return blend;
+	}
+	@FindBy(xpath="//strong[.='BLENDED OIL']")
+	private WebElement blend;
+	@FindBy(xpath="//a[.='grocerylink']")
+	private WebElement grocery;
 	@FindBy(xpath="//button[.='×']")
 	private WebElement closeNotification;
+
 	@FindBy(xpath="//span[@class='msgs']")
 	private WebElement deliveryMsg;
 	@FindBy(xpath="//button[.='×']")
@@ -127,6 +157,13 @@ public class HomePage
 	}
 	public WebElement getDeliveryMsg() {
 		return deliveryMsg;
+	}
+
+	@FindBy(xpath="//a[.='Blended oil']")
+	private WebElement blendOil;
+	public WebElement getBlendOil() {
+		return blendOil;
+
 	}
 	public WebElement getChatoff() {
 		return chatoff;
@@ -290,6 +327,12 @@ public class HomePage
 	public void clickOnMyAccount() {
 		myAccountLink.click();
 	}
+	
+	@FindBy(xpath="//a[@class='scrollup']")
+	private WebElement scroolUp;
+	public WebElement getScroolUp() {
+		return scroolUp;
+	}
 	public void clickOnSearchBar(String searchprod) {
 		searchBar.sendKeys(searchprod,Keys.ENTER);
 	}
@@ -375,5 +418,37 @@ public class HomePage
 		searchBar.sendKeys(search, Keys.ENTER);
 	}
 	
+	public void scrollTopCart(WebDriver driver,String ActTitle) 
+	{
+		int y=liNk.getLocation().getY();
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(0,"+y+");");
+		scroolUp.click();
+		mycartLink.click();   
+		String title = driver.getTitle();
+		Assert.assertEquals(title, ActTitle);
+	}
 	
+	public void moveComp()
+	{
+		Utility.ac.moveToElement(grocerylink);
+		blendOil.click();
+		String blendoil = blend.getText();
+		Assert.assertEquals("BLENDED OIL", blendoil);
+	}
+	
+	public void continueShopping(WebDriver driver)
+	{
+		Utility.ac.moveToElement(grocerylink);
+		jaggery.click();
+		int y=addtoCart.getLocation().getY();
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(0,"+y+");");
+		addtoCart.click();
+		scroolUp.click();
+		mycartLink.click();
+		
+		
+		
+	}
 }

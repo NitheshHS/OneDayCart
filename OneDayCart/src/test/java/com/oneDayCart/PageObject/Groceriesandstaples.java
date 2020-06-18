@@ -118,8 +118,8 @@ public WebElement getRs300Link() {
    {
 	   HomePage home = PageFactory.initElements(driver, HomePage.class);
 	   home.getGroceryAndSaples().click();
-	   JavascriptExecutor js=(JavascriptExecutor)driver;
 	   int y = riceProductsLink.getLocation().getY();
+	   JavascriptExecutor js=(JavascriptExecutor)driver;
 	   js.executeScript("window.scrollBy(0,"+y+");");
 	   riceProductsLink.click();
 	   int a = brandedLink.getLocation().getY();
@@ -128,6 +128,8 @@ public WebElement getRs300Link() {
 	   int b=rs200Link.getLocation().getY();
 	   js.executeScript("window.scrollBy(0,"+b+");");
 	   rs200Link.click();
+	   int c=addToCart.getLocation().getY();
+	   js.executeScript("window.scrollBy(0,"+c+");");
 	   addToCart.click();
 	   Assert.assertTrue(tickMark.isDisplayed());
 	   
