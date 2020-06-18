@@ -19,14 +19,15 @@ import org.testng.ITestResult;
  *
  */
 public class Utility {
-	static Actions ac;
+	public static Actions ac;
 	static Select sel;
 	/**
 	 * This method is used to move mouse cursor over webelement in web page
 	 * @param driver
 	 * @param element
 	 */
-	public static void moveToElement(WebDriver driver, WebElement element) {
+	public static void moveToElement(WebDriver driver, WebElement element) 
+	{
 		ac=new Actions(driver);
 		ac.moveToElement(element);
 	}

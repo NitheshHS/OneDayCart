@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
@@ -70,5 +71,11 @@ public class MyCartPage {
 		Reporter.log("move items to wishlist",true);
 		moveLink.click();
 	}
-	
+	public void continueShopp(WebDriver driver)
+	{
+		int y=continueShoppigBT.getLocation().getY();
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(0,"+y+");");
+		continueShoppigBT.click();
+	}
 }
