@@ -144,7 +144,11 @@ public class HomePage
 	private WebElement grocery;
 	@FindBy(xpath="//button[.='×']")
 	private WebElement closeNotification;
-	
+	@FindBy(xpath="//a[.='Blended oil']")
+	private WebElement blendOil;
+	public WebElement getBlendOil() {
+		return blendOil;
+	}
 	public WebElement getChatoff() {
 		return chatoff;
 	}
@@ -407,7 +411,7 @@ public class HomePage
 	public void moveComp()
 	{
 		Utility.ac.moveToElement(grocerylink);
-		grocery.click();
+		blendOil.click();
 		String blendoil = blend.getText();
 		Assert.assertEquals("BLENDED OIL", blendoil);
 	}
@@ -415,7 +419,6 @@ public class HomePage
 	public void continueShopping(WebDriver driver)
 	{
 		Utility.ac.moveToElement(grocerylink);
-		grocery.click();
 		jaggery.click();
 		int y=addtoCart.getLocation().getY();
 		JavascriptExecutor js=(JavascriptExecutor)driver;
