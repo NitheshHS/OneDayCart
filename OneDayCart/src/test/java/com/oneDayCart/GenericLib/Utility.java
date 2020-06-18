@@ -28,7 +28,7 @@ public class Utility {
 	 */
 	public static void moveToElement(WebDriver driver, WebElement element) {
 		ac=new Actions(driver);
-		ac.moveToElement(element);
+		ac.moveToElement(element).perform();
 	}
 	/**
 	 * This method used handle dropdown in webpage

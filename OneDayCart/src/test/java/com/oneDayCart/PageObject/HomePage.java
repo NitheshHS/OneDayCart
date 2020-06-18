@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 import org.testng.Reporter;
 
 import com.oneDayCart.GenericLib.Base;
@@ -116,7 +117,17 @@ public class HomePage
 	private WebElement topButton;
 	@FindBy(xpath="//button[.='×']")
 	private WebElement closeNotification;
+	@FindBy(xpath="//span[@class='msgs']")
+	private WebElement deliveryMsg;
+	@FindBy(xpath="//button[.='×']")
+	private WebElement closePushNotificationBT;
 	
+	public WebElement getClosePushNotificationBT() {
+		return closePushNotificationBT;
+	}
+	public WebElement getDeliveryMsg() {
+		return deliveryMsg;
+	}
 	public WebElement getChatoff() {
 		return chatoff;
 	}
@@ -338,10 +349,15 @@ public class HomePage
 		Utility.moveToElement(driver, readytoeatLink);
 		biscuitsLink.click();
 	}
-	public void checkDeliverylocation(WebDriver driver, String pincode) {
-		Utility.moveToElement(driver, deliverylocLink);
+	public void checkDeliverylocation(String pincode) {
+		closePushNotificationBT.click();
+		Utility.moveToElement(Base.staticDriver, deliverylocLink);
 		menupinTF.sendKeys(pincode);
+		Reporter.log("enter pincode", true);
 		checkButton.click();
+		Reporter.log("click on check button", true);
+		Assert.assertTrue(deliveryMsg.isDisplayed());
+		Reporter.log(deliveryMsg.getText());
 	}
 	public void clickOnTop() {
 		topButton.click();
