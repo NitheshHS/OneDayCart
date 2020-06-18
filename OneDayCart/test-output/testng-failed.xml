@@ -3,15 +3,15 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.oneDayCart.testScript.WishListTest">
+      <class name="com.oneDayCart.testScript.SendWishListByMailTest">
         <methods>
           <include name="configBC"/>
           <include name="configAC"/>
           <include name="configBM"/>
           <include name="configAM"/>
-          <include name="moveItemToWishlistTest"/>
+          <include name="sendWishlistprodInMailTest" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.oneDayCart.testScript.WishListTest -->
+      </class> <!-- com.oneDayCart.testScript.SendWishListByMailTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

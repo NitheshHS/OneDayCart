@@ -15,7 +15,7 @@ public class chatoffline extends Base
 	@DataProvider
 	public Object[][] readData() 
 	{
-		return fi.readAllDataFromExcel("offlinechat");
+		return fi.readAlldataFromExcel("offlinechat");
 	
 	}
 	@Test(dataProvider="readData")
