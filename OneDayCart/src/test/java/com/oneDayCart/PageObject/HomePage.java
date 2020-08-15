@@ -9,7 +9,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import org.openqa.selenium.support.PageFactory;
-
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.Reporter;
 
@@ -136,6 +137,14 @@ public class HomePage
 	private WebElement jaggery;
 	public WebElement getJaggery() {
 		return jaggery;
+	}
+	
+	@FindBy(xpath="//span[.='Chat? - Offline']")
+	private WebElement chat;
+	
+	
+	public WebElement getChat() {
+		return chat;
 	}
 	public WebElement getBlend() {
 		return blend;
@@ -326,6 +335,7 @@ public class HomePage
 	}
 	public void clickOnMyAccount() {
 		myAccountLink.click();
+		Reporter.log("click on my account link", true);
 	}
 	
 	@FindBy(xpath="//a[@class='scrollup']")
@@ -418,15 +428,14 @@ public class HomePage
 		searchBar.sendKeys(search, Keys.ENTER);
 	}
 	
-	public void scrollTopCart(WebDriver driver,String ActTitle) 
+	public void scrollTopCart() 
 	{
-		int y=liNk.getLocation().getY();
-		JavascriptExecutor js=(JavascriptExecutor)driver;
-		js.executeScript("window.scrollBy(0,"+y+");");
+		Utility.scrollBy(liNk.getLocation().getY());
 		scroolUp.click();
-		mycartLink.click();   
-		String title = driver.getTitle();
-		Assert.assertEquals(title, ActTitle);
+		Reporter.log("click on top button", true);
+		mycartLink.click();
+		Reporter.log("click on my cart link");
+		
 	}
 	
 	public void moveComp()
@@ -447,8 +456,12 @@ public class HomePage
 		addtoCart.click();
 		scroolUp.click();
 		mycartLink.click();
-		
-		
-		
+	
 	}
+	public void clickonChat() {
+		WebDriverWait wait=new WebDriverWait(Base.staticDriver, 5);
+		wait.until(ExpectedConditions.visibilityOf(chat));
+		chat.click();
+	}
+	
 }
